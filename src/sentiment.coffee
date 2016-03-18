@@ -145,26 +145,26 @@ module.exports = (robot) ->
   emoteScore = (score) ->
     score = parseFloat(score)
     prettyScore =
-      if score <= -3.5
+      if score >= 3.5
         ":stuck_out_tongue_winking_eye:"
-      else if score <= -2.5
-        ":smiley:"
-      else if score <= -1.5
-        ":blush:"
-      else if score <= -0.1
-        ":relieved:"
-      else if score >= 3.5
-        ":neutral_face:"
       else if score >= 2.5
-        ":confused:"
+        ":smiley:"
       else if score >= 1.5
-        ":pensive:"
+        ":blush:"
       else if score >= 0.1
+        ":relieved:"
+      else if score < 0.1 and score > -0.1
+        ":neutral_face:"
+      else if score <= -0.1
+        ":confused:"
+      else if score <= -1.5
+        ":pensive:"
+      else if score <= -2.5
         ":sleepy:"
       else
         ":sob:"
 
-    "#{prettyScore} (#{score})"
+    "#{prettyScore} (#{score.toFixed(1)})"
 
   prettyPrintList = (entries, emptyMessage) ->
     output = ''
