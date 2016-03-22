@@ -155,14 +155,14 @@ module.exports = (robot) ->
         ":relieved:"
       else if score < 0.1 and score > -0.1
         ":neutral_face:"
-      else if score <= -0.1
-        ":confused:"
-      else if score <= -1.5
-        ":pensive:"
+      else if score <= -3.5
+        ":sob:"
       else if score <= -2.5
         ":sleepy:"
+      else if score <= -1.5
+        ":pensive:"
       else
-        ":sob:"
+        ":confused:"
 
     "#{prettyScore} (#{score.toFixed(1)})"
 
